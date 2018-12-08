@@ -22,8 +22,9 @@ api-web-new-help/src/main/resources/WEB-INF/
 .vscode
 npm-debug.log
 yarn-error.log
-.proxyrc.js
+
 *.swp
 package-lock.json
+/out
 
 /mis-web-react-help/node_modules
