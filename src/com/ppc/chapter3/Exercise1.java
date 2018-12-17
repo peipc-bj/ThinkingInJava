@@ -1,7 +1,5 @@
 package com.ppc.chapter3;
 
-import com.ppc.util.Print;
-
 import java.util.Date;
 
 import static com.ppc.util.Print.*;
@@ -15,8 +13,8 @@ public class Exercise1 {
     float fieldFloat;
 
     public static void main(String[] args){
-        print("Hello, it's");
-        print(new Date().toLocaleString());
+        printnb("Hello, it's ");
+        print(new Date());
         Exercise1 obj1 = new Exercise1();
         Exercise1 obj2 = new Exercise1();
         obj1.fieldFloat = 17.1f;
