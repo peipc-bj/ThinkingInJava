@@ -2,36 +2,41 @@ package com.ppc.personal;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * @author peipengcheng
  * @create 2018-12-09-下午5:45
  */
-public class FangDai {
+public class FangDai2 {
     //2019-07-15余额
-    private static final double total = 300944.36d;
+    private static final double total = 259820.16d;
 
-    private static final Double bilv = 0.05635d;
+    private static final Double bilv = 0.05485d;
 
-    private static final double month = 2055.56d;//本金
+    private static final double month = 2062.06d;//本金
+
+    private static final double money = 20 *10000d;//本金
+
+    private static final String date = "2021-06-15";
 
     public static void main(String[] args) throws Exception{
-        double totalNowAfter2 = total - month * 1;//2个月后余额
-        System.out.println(totalNowAfter2);
-        double totalNow = totalNowAfter2;//2个月后提前还款后余额
-        System.out.println(totalNow);
-        double totalNow2 = totalNow;
+        double totalNow = total;
+        if (money > 0 && date != null) {
+
+        }
+
         double totalBuy = 0;
         int count = 0;
         while(true){
-            double lixi = totalNow2 * bilv / 12;
-            System.out.println("lixi========"+(lixi + month));
+            double lixi = totalNow * bilv / 12;
+            System.out.println("利息========"+(lixi + month));
             totalBuy += lixi + month;
             //每月还款，利息计算值
-            totalNow2 = totalNow2 - month;
-            System.out.println(totalNow2);
+            totalNow = totalNow - month;
+            System.out.println(totalNow);
                 count ++;
-            if(totalNow2 < 0 ){
+            if(totalNow < 0 ){
                 break;
             }
         }
@@ -43,7 +48,7 @@ public class FangDai {
     static String getMonth(int count) throws Exception{
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd");
         Calendar calendar = Calendar.getInstance();
-        calendar.setTime(simpleDateFormat.parse("2019-07-10"));
+        calendar.setTime(new Date());
         calendar.add(Calendar.MONTH,count);
         return simpleDateFormat.format(calendar.getTime());
     }
